@@ -1,36 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useBookmarks, toggleBookmark } from "@/lib/bookmarks";
 
 export default function ComicCard({ id, title, rating, chapter }) {
-  const [bookmarked, setBookmarked] = useState(false);
-  const [loaded, setLoaded] = useState(false);
+  const bookmarks = useBookmarks();
 
-  useEffect(() => {
-    const savedBookmarks = JSON.parse(
-      localStorage.getItem("crazymanhua-bookmarks") || "[]",
-    );
-
-    setBookmarked(savedBookmarks.includes(id));
-    setLoaded(true);
-  }, [id]);
-
-  function toggleBookmark() {
-    const savedBookmarks = JSON.parse(
-      localStorage.getItem("crazymanhua-bookmarks") || "[]",
-    );
-
-    const updatedBookmarks = bookmarked
-      ? savedBookmarks.filter((comicId) => comicId !== id)
-      : [...new Set([...savedBookmarks, id])];
-
-    localStorage.setItem(
-      "crazymanhua-bookmarks",
-      JSON.stringify(updatedBookmarks),
-    );
-
-    setBookmarked(!bookmarked);
-  }
+  const bookmarked = bookmarks.includes(id);
 
   return (
     <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-4 text-white">
@@ -41,11 +16,10 @@ export default function ComicCard({ id, title, rating, chapter }) {
       <p className="mt-1 text-sm text-zinc-400">Latest: {chapter}</p>
 
       <button
-        onClick={toggleBookmark}
-        disabled={!loaded}
+        onClick={() => toggleBookmark(id)}
         className="mt-4 rounded-md bg-purple-600 px-4 py-2 text-sm font-medium hover:bg-purple-700"
       >
-        {!loaded ? "Loading..." : bookmarked ? "Bookmarked ✓" : "Add Bookmark"}
+        {bookmarked ? "Bookmarked ✓" : "Add Bookmark"}
       </button>
     </div>
   );
