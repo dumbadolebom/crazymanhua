@@ -1,12 +1,9 @@
-import Navbar from "@/components/Navbar";
 import ComicCard from "@/components/ComicCard";
 import { comics } from "@/data/comics";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <Navbar />
-
       <section className="p-8">
         <h1 className="mb-6 text-3xl font-bold">Popular Comics</h1>
 
