@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import ComicCard from "@/components/ComicCard";
+import { comics } from "@/data/comics";
 
 export default function Home() {
   return (
@@ -10,19 +11,14 @@ export default function Home() {
         <h1 className="mb-6 text-3xl font-bold">Popular Comics</h1>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <ComicCard title="Solo Leveling" rating="9.8" chapter="Chapter 200" />
-
-          <ComicCard
-            title="Omniscient Reader"
-            rating="9.7"
-            chapter="Chapter 250"
-          />
-
-          <ComicCard
-            title="The Beginning After The End"
-            rating="9.5"
-            chapter="Chapter 190"
-          />
+          {comics.map((comic) => (
+            <ComicCard
+              key={comic.id}
+              title={comic.title}
+              rating={comic.rating}
+              chapter={comic.chapter}
+            />
+          ))}
         </div>
       </section>
     </main>
