@@ -32,6 +32,7 @@ export default function SearchPage() {
           {filteredComics.map((comic) => (
             <ComicCard
               key={comic.id}
+              id={comic.id}
               title={comic.title}
               rating={comic.rating}
               chapter={comic.chapter}

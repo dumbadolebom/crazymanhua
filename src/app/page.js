@@ -11,6 +11,7 @@ export default function Home() {
           {comics.map((comic) => (
             <ComicCard
               key={comic.id}
+              id={comic.id}
               title={comic.title}
               rating={comic.rating}
               chapter={comic.chapter}

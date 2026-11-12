@@ -1,11 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function ComicCard({ title, rating, chapter }) {
+export default function ComicCard({ id, title, rating, chapter }) {
   const [bookmarked, setBookmarked] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const savedBookmarks = JSON.parse(
+      localStorage.getItem("crazymanhua-bookmarks") || "[]",
+    );
+
+    setBookmarked(savedBookmarks.includes(id));
+    setLoaded(true);
+  }, [id]);
 
   function toggleBookmark() {
+    const savedBookmarks = JSON.parse(
+      localStorage.getItem("crazymanhua-bookmarks") || "[]",
+    );
+
+    const updatedBookmarks = bookmarked
+      ? savedBookmarks.filter((comicId) => comicId !== id)
+      : [...new Set([...savedBookmarks, id])];
+
+    localStorage.setItem(
+      "crazymanhua-bookmarks",
+      JSON.stringify(updatedBookmarks),
+    );
+
     setBookmarked(!bookmarked);
   }
 
@@ -19,9 +42,10 @@ export default function ComicCard({ title, rating, chapter }) {
 
       <button
         onClick={toggleBookmark}
+        disabled={!loaded}
         className="mt-4 rounded-md bg-purple-600 px-4 py-2 text-sm font-medium hover:bg-purple-700"
       >
-        {bookmarked ? "Bookmarked ✓" : "Add Bookmark"}
+        {!loaded ? "Loading..." : bookmarked ? "Bookmarked ✓" : "Add Bookmark"}
       </button>
     </div>
   );
