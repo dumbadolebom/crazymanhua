@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useBookmarks, toggleBookmark } from "@/lib/bookmarks";
 
 export default function ComicCard({ id, title, rating, chapter }) {
@@ -9,7 +10,11 @@ export default function ComicCard({ id, title, rating, chapter }) {
 
   return (
     <div className="rounded-lg border border-zinc-700 bg-zinc-900 p-4 text-white">
-      <h2 className="text-xl font-bold">{title}</h2>
+      <h2 className="text-xl font-bold">
+        <Link href={`/comic/${id}`} className="hover:text-purple-400">
+          {title}
+        </Link>
+      </h2>
 
       <p className="mt-2 text-sm text-zinc-400">Rating: {rating}</p>
 
