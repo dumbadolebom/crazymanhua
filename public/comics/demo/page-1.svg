@@ -1,0 +1,44 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="1200"
+     viewBox="0 0 800 1200">
+
+  <rect width="800" height="1200" fill="#f5f5f5"/>
+
+  <text x="400" y="80"
+        font-family="Arial"
+        font-size="44"
+        font-weight="bold"
+        text-anchor="middle">
+    THE BEGINNING
+  </text>
+
+  <!-- First comic panel -->
+  <rect x="50" y="120" width="700" height="400"
+        fill="#dedede" stroke="black" stroke-width="6"/>
+
+  <circle cx="400" cy="320" r="100"
+          fill="#999999" stroke="black" stroke-width="5"/>
+
+  <text x="400" y="470"
+        font-family="Arial"
+        font-size="28"
+        text-anchor="middle">
+    A mysterious world awaits...
+  </text>
+
+  <!-- Second comic panel -->
+  <rect x="50" y="560" width="700" height="550"
+        fill="#ffffff" stroke="black" stroke-width="6"/>
+
+  <path d="M100 950 L300 650 L480 900 L650 600 L700 1050"
+        fill="none" stroke="#333333" stroke-width="12"/>
+
+  <text x="400" y="1080"
+        font-family="Arial"
+        font-size="28"
+        text-anchor="middle">
+    The journey begins.
+  </text>
+
+</svg>

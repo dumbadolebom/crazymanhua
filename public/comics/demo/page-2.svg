@@ -1,0 +1,44 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800" height="1200"
+     viewBox="0 0 800 1200">
+
+  <rect width="800" height="1200" fill="#f5f5f5"/>
+
+  <text x="400" y="80"
+        font-family="Arial"
+        font-size="44"
+        font-weight="bold"
+        text-anchor="middle">
+    THE JOURNEY
+  </text>
+
+  <!-- First panel -->
+  <rect x="50" y="120" width="700" height="450"
+        fill="#cccccc" stroke="black" stroke-width="6"/>
+
+  <circle cx="400" cy="300" r="130"
+          fill="#ffffff" stroke="black" stroke-width="6"/>
+
+  <text x="400" y="305"
+        font-family="Arial"
+        font-size="30"
+        text-anchor="middle">
+    Where am I?
+  </text>
+
+  <!-- Second panel -->
+  <rect x="50" y="610" width="700" height="500"
+        fill="#333333" stroke="black" stroke-width="6"/>
+
+  <circle cx="400" cy="850" r="90" fill="#dddddd"/>
+
+  <text x="400" y="1030"
+        font-family="Arial"
+        font-size="30"
+        fill="white"
+        text-anchor="middle">
+    To be continued...
+  </text>
+
+</svg>
